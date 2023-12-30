@@ -12,3 +12,4 @@
 .idea
 
 resources//persistence.xml
+src/main/resources/META-INF/persistence.xml
