@@ -13,7 +13,6 @@ import java.util.List;
 public class PersonalCertificateRepository {
 
     public List<PersonalCertificate> getALL() {
-
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("certificate-em");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
@@ -89,5 +88,4 @@ public class PersonalCertificateRepository {
         entityManager.close();
         entityManagerFactory.close();
     }
-
 }

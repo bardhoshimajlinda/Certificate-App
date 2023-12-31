@@ -11,10 +11,10 @@ import java.util.List;
 
 public class CertificateApp {
     public static void main(String[] args) {
-       // testGetAll();
-      //  testGetById(3);
-      //  testInsert();
-      //  testUpdate();
+        testGetAll();
+        testGetById(3);
+        testInsert();
+        testUpdate();
         testDelete();
     }
 
