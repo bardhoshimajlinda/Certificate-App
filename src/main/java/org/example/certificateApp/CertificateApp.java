@@ -13,7 +13,8 @@ public class CertificateApp {
     public static void main(String[] args) {
        // testGetAll();
       //  testGetById(3);
-        testInsert();
+      //  testInsert();
+        testUpdate();
     }
 
     public static void testGetAll() {
@@ -33,7 +34,7 @@ public class CertificateApp {
 
         personalCertificate.setId(1);
         personalCertificate.setName("Test Name");
-        personalCertificate.setSurname("Test Surname");
+        personalCertificate.setSurname("Test Update Surname");
         personalCertificate.setBirthDate(LocalDate.of(1998, Month.JULY, 22));
         personalCertificate.setGender(Gender.FEMALE);
         personalCertificate.setRelationshipStatus(RelationshipStatus.COMPLICATED);
@@ -51,5 +52,28 @@ public class CertificateApp {
         PersonalCertificateRepository repository = new PersonalCertificateRepository();
         repository.insert(personalCertificate);
 
+    }
+
+    private static PersonalCertificate updatedPersonalCertificate() {
+        PersonalCertificate personalCertificate = new PersonalCertificate();
+
+        personalCertificate.setId(2);
+        personalCertificate.setName("Alma Test");
+        personalCertificate.setSurname("Mara");
+        personalCertificate.setBirthDate(LocalDate.of(1994, Month.DECEMBER, 24));
+        personalCertificate.setGender(Gender.FEMALE);
+        personalCertificate.setRelationshipStatus(RelationshipStatus.MARRIED);
+        personalCertificate.setSsn("K4684189L");
+        personalCertificate.setAge(28);
+        personalCertificate.setHeight(165.50);
+        personalCertificate.setEmployed(true);
+
+        return personalCertificate;
+    }
+
+    public static void testUpdate() {
+        PersonalCertificateRepository repository = new PersonalCertificateRepository();
+        PersonalCertificate certificate = updatedPersonalCertificate();
+        repository.update(certificate);
     }
 }

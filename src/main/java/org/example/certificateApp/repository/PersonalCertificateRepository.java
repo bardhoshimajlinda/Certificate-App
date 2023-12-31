@@ -61,4 +61,17 @@ public class PersonalCertificateRepository {
         entityManagerFactory.close();
     }
 
+    public void update(PersonalCertificate personalCertificate) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("certificate-em");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        transaction.begin();
+        entityManager.merge(personalCertificate);
+        transaction.commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
 }
