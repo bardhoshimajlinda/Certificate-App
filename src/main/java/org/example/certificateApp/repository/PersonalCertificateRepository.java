@@ -74,4 +74,20 @@ public class PersonalCertificateRepository {
         entityManagerFactory.close();
     }
 
+    public void delete(int id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("certificate-em");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        transaction.begin();
+
+        PersonalCertificate personalCertificate = entityManager.find(PersonalCertificate.class,id);
+        entityManager.remove(personalCertificate);
+
+        transaction.commit();
+
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
 }

@@ -14,7 +14,8 @@ public class CertificateApp {
        // testGetAll();
       //  testGetById(3);
       //  testInsert();
-        testUpdate();
+      //  testUpdate();
+        testDelete();
     }
 
     public static void testGetAll() {
@@ -75,5 +76,10 @@ public class CertificateApp {
         PersonalCertificateRepository repository = new PersonalCertificateRepository();
         PersonalCertificate certificate = updatedPersonalCertificate();
         repository.update(certificate);
+    }
+
+    public static void testDelete() {
+        PersonalCertificateRepository repository = new PersonalCertificateRepository();
+        repository.delete(3);
     }
 }
