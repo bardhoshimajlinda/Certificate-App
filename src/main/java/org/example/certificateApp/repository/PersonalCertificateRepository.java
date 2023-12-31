@@ -47,4 +47,18 @@ public class PersonalCertificateRepository {
         return personalCertificate;
     }
 
+    public void insert(PersonalCertificate personalCertificate) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("certificate-em");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+
+        entityTransaction.begin();
+
+        entityManager.persist(personalCertificate);
+
+        entityTransaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
 }
