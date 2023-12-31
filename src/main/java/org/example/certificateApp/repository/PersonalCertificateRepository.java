@@ -21,9 +21,8 @@ public class PersonalCertificateRepository {
         transaction.begin();
 
         List<PersonalCertificate> personalCertificates = entityManager.createQuery(
-                            "SELECT p FROM PersonalCertificate p WHERE p.name = :name", PersonalCertificate.class)
-                    .setParameter("name", "Lusi")
-                    .getResultList();
+                            "SELECT p FROM PersonalCertificate p", PersonalCertificate.class)
+                .getResultList();
 
         transaction.commit();
         entityManager.close();
@@ -31,4 +30,21 @@ public class PersonalCertificateRepository {
 
         return personalCertificates;
     }
+
+    public PersonalCertificate getById(int id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("certificate-em");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        transaction.begin();
+
+        PersonalCertificate personalCertificate = entityManager.find(PersonalCertificate.class, id);
+
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return personalCertificate;
+    }
+
 }
