@@ -12,7 +12,6 @@ public class PersonalCertificate {
 
     @Id
     private int id;
-
     private String name;
     private String surname;
     @Column(name = "birth_date")
